@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-// Theme tokens mirror the shadcn/ui variables used on polydial.com.
+// Theme tokens mirror the shadcn/ui variables used on the original site.
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {

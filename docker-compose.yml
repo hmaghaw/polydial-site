@@ -3,7 +3,7 @@ services:
     build:
       context: .
       args:
-        VITE_PORTAL_URL: ${VITE_PORTAL_URL:-https://polydial.com}
+        VITE_PORTAL_URL: ${VITE_PORTAL_URL:-}
     image: polydial-marketing:latest
     container_name: polydial-marketing
     ports:

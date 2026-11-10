@@ -7,8 +7,9 @@ RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
 COPY . .
 
-# Where portal buttons ("Login to Portal", "Get Started") point.
-ARG VITE_PORTAL_URL=https://polydial.com
+# Optional: where portal buttons ("Login to Portal", "Get Started") point.
+# Empty = local placeholder pages.
+ARG VITE_PORTAL_URL=
 ENV VITE_PORTAL_URL=$VITE_PORTAL_URL
 
 RUN npm run build

@@ -1,6 +1,6 @@
 # PolyDial marketing site (Docker)
 
-A standalone replica of the public pages of polydial.com — React + Vite + Tailwind, served by nginx.
+A standalone replica of the PolyDial public marketing pages — React + Vite + Tailwind, served by nginx.
 No database, no backend, no third-party scripts.
 
 ## Run it
@@ -22,6 +22,7 @@ Change the port with `PORT=3000 docker compose up --build -d`.
 | `/languages` | Supported languages |
 | `/privacy-policy`, `/terms-of-service` | Legal (edit `src/content/*.md`) |
 | `/customer-support` | Help Center |
+| `/login`, `/onboarding` | Placeholder pages for the portal buttons |
 
 Any other path shows a 404 page. `/healthz` returns `ok` for health checks.
 
@@ -29,10 +30,11 @@ Any other path shows a 404 page. `/healthz` returns `ok` for health checks.
 
 The real logo PNG and the four demo videos aren't included. Until you add them the site
 uses an SVG approximation of the logo and shows a "Video not bundled yet" panel.
-To pull them from the live site (run from the project root, then rebuild):
+To download them (run from the project root, passing the base URL of the site that
+hosts them, then rebuild):
 
 ```sh
-sh scripts/fetch-assets.sh
+sh scripts/fetch-assets.sh https://<site-that-hosts-the-media>
 docker compose up --build -d
 ```
 
@@ -42,10 +44,11 @@ names listed in `src/config.js`.
 ## Portal links
 
 "Login to Portal", "Get Started" and similar buttons link to the portal, which is not part of
-this site. They point at `https://polydial.com` by default; change it at build time:
+this site. By default they open local placeholder pages (`/login`, `/onboarding`) with
+contact details. To point them at a real portal, set it at build time:
 
 ```sh
-VITE_PORTAL_URL=https://staging.polydial.com docker compose up --build -d
+VITE_PORTAL_URL=https://portal.example.com docker compose up --build -d
 ```
 
 ## Editing

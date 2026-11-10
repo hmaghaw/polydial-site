@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --primary: 238.7 83.5% 66.7%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* Leave room for the sticky header when jumping to #anchors */
+  section[id] {
+    scroll-margin-top: 4rem;
+  }
+}
+
+/* Styling for the markdown-rendered legal pages */
+.legal h1 { @apply text-3xl md:text-4xl font-bold text-gray-900 mb-4; }
+.legal h2 { @apply text-2xl font-semibold text-gray-900 mt-10 mb-4; }
+.legal h3 { @apply text-xl font-semibold text-gray-900 mt-6 mb-3; }
+.legal p { @apply text-gray-700 leading-relaxed mb-4; }
+.legal ul { @apply list-disc pl-6 space-y-2 mb-4 text-gray-700; }
+.legal li { @apply leading-relaxed; }
+.legal strong { @apply font-semibold text-gray-900; }
+.legal a { @apply text-blue-600 hover:underline; }
+.legal em { @apply text-gray-600; }

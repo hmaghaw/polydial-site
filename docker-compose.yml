@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        VITE_PORTAL_URL: ${VITE_PORTAL_URL:-https://polydial.com}
+    image: polydial-marketing:latest
+    container_name: polydial-marketing
+    ports:
+      - "${PORT:-3004}:80"
+    restart: unless-stopped
